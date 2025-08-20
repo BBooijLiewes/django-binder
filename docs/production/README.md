@@ -16,44 +16,26 @@ This directory contains comprehensive, production-grade documentation for Django
 - [Routing System](routing.md) - URL routing and endpoint registration
 
 ### API Development
-- [API Design Patterns](api-patterns.md) - Best practices for API design
-- [Request/Response Handling](request-response.md) - Data serialization and validation
 - [Filtering & Searching](filtering.md) - Advanced querying capabilities
-- [Pagination & Ordering](pagination.md) - Efficient data retrieval
+- [File Handling](file-handling.md) - Upload, storage, and serving files
+- [Multi-PUT Operations](multi-put.md) - Batch create/update operations
+- [Request/Response Handling](request-response.md) - Data serialization and validation
 
 ### Advanced Features
 - [Permissions & Security](permissions.md) - Authentication and authorization
-- [File Handling](file-handling.md) - Upload, storage, and serving files
 - [History & Auditing](history.md) - Track model changes and audit trails
 - [WebSocket Support](websockets.md) - Real-time communication
-- [Multi-PUT Operations](multi-put.md) - Batch create/update operations
-
-### Plugins & Extensions
-- [Plugin System](plugins.md) - Extending Django Binder functionality
-- [Built-in Plugins](built-in-plugins.md) - Available plugins and their usage
-- [Custom Plugin Development](custom-plugins.md) - Creating your own plugins
+- [Plugin System](plugins.md) - Built-in plugins and extensions
 
 ### Production Deployment
 - [Performance Optimization](performance.md) - Scaling and optimization strategies
-- [Monitoring & Logging](monitoring.md) - Production monitoring setup
 - [Security Best Practices](security.md) - Securing your Django Binder application
-- [Database Considerations](database.md) - PostgreSQL and MySQL support
-
-### Testing & Development
 - [Testing Guide](testing.md) - Unit and integration testing strategies
-- [Development Workflow](development.md) - Best practices for development
 - [Debugging](debugging.md) - Troubleshooting common issues
-
-### Migration & Integration
-- [Migration Guide](migration.md) - Migrating from other frameworks
-- [Integration Patterns](integration.md) - Integrating with existing systems
-- [Frontend Integration](frontend.md) - Connecting with JavaScript frameworks
 
 ### Reference
 - [API Reference](api-reference.md) - Complete API documentation
-- [Configuration Reference](config-reference.md) - All configuration options
 - [Error Codes](error-codes.md) - Complete error code reference
-- [Changelog](changelog.md) - Version history and changes
 
 ## Version Information
 
