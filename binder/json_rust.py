@@ -27,7 +27,7 @@ def _default_handler(obj):
     import decimal
     import uuid
     import datetime
-    
+
     if isinstance(obj, decimal.Decimal):
         return str(obj)
     elif isinstance(obj, uuid.UUID):
@@ -38,7 +38,7 @@ def _default_handler(obj):
         return obj.isoformat()
     elif isinstance(obj, datetime.time):
         return obj.strftime('%H:%M:%S.%f%z')
-    
+
     # Try psycopg2 DateTimeTZRange
     try:
         from psycopg2.extras import DateTimeTZRange
@@ -46,49 +46,49 @@ def _default_handler(obj):
             return (obj.lower, obj.upper)
     except ImportError:
         pass
-    
+
     raise TypeError(f"Type {type(obj)} is not JSON serializable")
 
 
 def jsondumps(o, indent=None):
     """
     Serialize object to JSON string using orjson.
-    
+
     Args:
         o: Object to serialize
         indent: Optional indentation level for pretty printing
-        
+
     Returns:
         JSON string
     """
     if not ORJSON_AVAILABLE:
         return _py_jsondumps(o, indent=indent)
-    
+
     # orjson returns bytes, we need str
     # Use OPT_NAIVE_UTC to handle naive datetimes as UTC
     options = orjson.OPT_NAIVE_UTC
     if indent is not None:
         options |= orjson.OPT_INDENT_2
-    
+
     return orjson.dumps(o, default=_default_handler, option=options).decode('utf-8')
 
 
 def jsonloads(data):
     """
     Deserialize JSON string using orjson.
-    
+
     Args:
         data: JSON string to parse
-        
+
     Returns:
         Parsed Python object
-        
+
     Raises:
         BinderRequestError: If JSON parsing fails
     """
     if not ORJSON_AVAILABLE:
         return _py_jsonloads(data)
-    
+
     try:
         return orjson.loads(data)
     except (ValueError, orjson.JSONDecodeError) as e:
@@ -98,10 +98,10 @@ def jsonloads(data):
 def JsonResponse(data):
     """
     Create HTTP response with JSON content.
-    
+
     Args:
         data: Object to serialize as JSON
-        
+
     Returns:
         HttpResponse with JSON content type
     """
