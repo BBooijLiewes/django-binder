@@ -33,7 +33,10 @@ from .exceptions import BinderException, BinderFieldTypeError, BinderFileSizeExc
 from . import history
 from .orderable_agg import OrderableArrayAgg, GroupConcat, StringAgg
 from .models import FieldFilter, BinderModel, ContextAnnotation, OptionalAnnotation, BinderFileField, BinderImageField
-from .json import JsonResponse, jsonloads, jsondumps
+try:
+	from .json_rust import JsonResponse, jsonloads, jsondumps
+except ImportError:
+	from .json import JsonResponse, jsonloads, jsondumps
 from .route_decorators import list_route
 
 
